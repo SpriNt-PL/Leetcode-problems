@@ -2,6 +2,8 @@ class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i, left_side in enumerate(nums):
             for j, right_side in enumerate(nums):
+                if i == j:
+                    continue
                 if left_side + right_side == target:
                     result = [i, j]
                     print(result)
