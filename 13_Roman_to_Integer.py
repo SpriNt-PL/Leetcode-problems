@@ -14,23 +14,22 @@ class Solution:
         number = 0
 
         for i, char in enumerate(s):
-
-            if i - 1 >= 0:
-                if roman_numerical[s[i - 1]] >= roman_numerical[s[i]]:
+            
+            if i + 1 < len(s):
+                if roman_numerical[s[i]] >= roman_numerical[s[i + 1]]:
                     number += roman_numerical[char]
+                    continue
                 else:
                     number -= roman_numerical[char]
             else:
                 number += roman_numerical[char]
-            
 
-        print(number)
         return number
         
 
 
 if __name__ == '__main__':
     solution = Solution()
-    # assert solution.romanToInt("III") == 3
-    # assert solution.romanToInt("LVIII") == 58
+    assert solution.romanToInt("III") == 3
+    assert solution.romanToInt("LVIII") == 58
     assert solution.romanToInt("MCMXCIV") == 1994
